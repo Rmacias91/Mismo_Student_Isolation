@@ -33,7 +33,7 @@
             android:id="@+id/category_card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="12dp"
             android:background="@color/colorPrimary"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"

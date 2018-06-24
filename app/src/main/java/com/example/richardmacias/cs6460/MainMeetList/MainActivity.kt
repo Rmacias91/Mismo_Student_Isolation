@@ -4,15 +4,26 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
+import android.view.Menu
 import com.example.richardmacias.cs6460.Data.Card
 import com.example.richardmacias.cs6460.R
+import android.support.v4.view.MenuItemCompat.getActionView
+import android.content.Context.SEARCH_SERVICE
+import android.app.SearchManager
+import android.content.Context
+import android.graphics.Color
+import android.support.design.widget.BottomNavigationView
+import android.support.v7.app.ActionBar
+import android.support.v7.widget.SearchView
+import android.view.View
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
+    lateinit var toolbar: ActionBar
     private val myList:MutableList<Card> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +45,23 @@ class MainActivity : AppCompatActivity() {
 
             // specify an viewAdapter (see also next example)
             adapter = viewAdapter
-
         }
+
+        toolbar = supportActionBar!!
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.navigation_view)
+
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView:SearchView = menu?.findItem(R.id.menu_search)?.actionView as SearchView
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(componentName))
+        return super.onCreateOptionsMenu(menu)
+    }
 
     private fun createDummyData(){
         val card1 = Card("Zoo After school","After school   Outdoors",
@@ -46,7 +69,10 @@ class MainActivity : AppCompatActivity() {
         val card2 = Card("We're playing chess at lunch!","Lunch Chess Friends",
                 "Anyone can sit with us. No experience needed.")
 
+
         myList.add(card1)
+        myList.add(card2)
+        myList.add(card2)
         myList.add(card2)
 
     }
