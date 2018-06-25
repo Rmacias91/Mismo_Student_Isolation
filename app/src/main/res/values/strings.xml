@@ -4,4 +4,22 @@
     <string name="menu_search">Search Categories</string>
     <string name="meet_bot_nav">Meet</string>
     <string name="learn_bot_nav">Learn</string>
+    <string name="text_title_add">Title</string>
+    <string name="hint_title_add">Enter title here..</string>
+    <string name="text_date_add">Date</string>
+    <string name="button_date_add">Pick a Date</string>
+    <string name="text_category_add">Category</string>
+    <string name="text_details_add">Details</string>
+    <string name="hint_details_add">Anything you want to add?</string>
+    <string name="button_save_add">Save</string>
+    <string name="text_activity_title_add">Describe your Activity</string>
+
+    <string-array name="categories">
+        <item>Board Games</item>
+        <item>After school</item>
+        <item>Outdoors</item>
+        <item>Lunch</item>
+        <item>Friends</item>
+    </string-array>
+
 </resources>
