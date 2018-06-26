@@ -13,6 +13,11 @@
     <string name="hint_details_add">Anything you want to add?</string>
     <string name="button_save_add">Save</string>
     <string name="text_activity_title_add">Describe your Activity</string>
+    <string name="text_when_label">When</string>
+    <string name="text_where_label">Where</string>
+    <string name="text_who_label">Who\'s going?</string>
+    <string name="text_add_info_label">Additonal Info</string>
+    <string name="button_join_detail">Join</string>
 
     <string-array name="categories">
         <item>Board Games</item>
