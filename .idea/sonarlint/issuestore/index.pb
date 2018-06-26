@@ -11,3 +11,23 @@ Z
 +app/src/main/res/layout/add_meet_layout.xml,6/a/6afd4757712b091f0c052359bcd23ea5c68d27f5
 S
 #app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e
+W
+'app/src/main/res/layout/card_layout.xml,e/5/e5bb39a2f5d16dec356b975144e158d1e7966e5f
+b
+2app/src/main/res/layout/article_content_layout.xml,5/4/54023fd6ca324e22dd496fa52731a0cc6e155ef7
+^
+.app/src/main/res/layout/meet_detail_layout.xml,8/4/8443e5ccc5b942170d74f986d33ee22e86a5f6d9
+`
+0app/src/main/res/layout/video_content_layout.xml,9/8/98755a1f577e19f5ea4b60e5f903bdfd9b5f6ad4
+W
+'app/src/main/res/menu/add_meet_menu.xml,a/5/a560b550a5cd7e003a9d53a87a85e31623650b13
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+S
+#app/src/main/res/menu/main_menu.xml,d/e/ded5c887bbeaf031e4b264875c385f52e227c161
+}
+Mapp/src/main/java/com/example/richardmacias/cs6460/AddMeet/AddMeetActivity.kt,f/2/f21f68eb27227e08482c17cf82275ee7dde3fb49
+€
+Papp/src/main/java/com/example/richardmacias/cs6460/MainMeetList/CustomAdapter.kt,3/7/37e886aa87309211daf66af8a8da536173c6e97d
+‹
+[app/src/main/java/com/example/richardmacias/cs6460/DetailMeetActivity/DetailMeetActivity.kt,e/9/e97c605e38ce458e293c31f9088844874731ac33

@@ -18,6 +18,8 @@
     <string name="text_who_label">Who\'s going?</string>
     <string name="text_add_info_label">Additonal Info</string>
     <string name="button_join_detail">Join</string>
+    <string name="cancel_action">Cancel</string>
+    <string name="done_action">Done</string>
 
     <string-array name="categories">
         <item>Board Games</item>

@@ -18,6 +18,8 @@
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable"/>
         </activity>
+        <activity android:name=".AddMeet.AddMeetActivity" />
+        <activity android:name=".DetailMeetActivity.DetailMeetActivity" />
     </application>
 
 </manifest>

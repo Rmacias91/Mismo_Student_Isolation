@@ -7,48 +7,44 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import com.example.richardmacias.cs6460.Data.Card
 import com.example.richardmacias.cs6460.R
-import android.support.v4.view.MenuItemCompat.getActionView
-import android.content.Context.SEARCH_SERVICE
 import android.app.SearchManager
 import android.content.Context
-import android.graphics.Color
+import android.content.Intent
 import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.SearchView
-import android.view.View
+import com.example.richardmacias.cs6460.AddMeet.AddMeetActivity
+import com.example.richardmacias.cs6460.DetailMeetActivity.DetailMeetActivity
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    lateinit var toolbar: ActionBar
+    private lateinit var toolbar: ActionBar
+    private lateinit var fabAddMeet: FloatingActionButton
+    private lateinit var bottomNavigation: BottomNavigationView
+
     private val myList:MutableList<Card> = mutableListOf()
+
+    private val itemClickListener = object:CustomAdapter.onItemClickListener{
+        override fun itemClick(position:Int) {
+            goToDetailActivity(position)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         createDummyData()
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = CustomAdapter(myList)
-
-        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-
-            // use a linear layout manager
-            layoutManager = viewManager
-
-            // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
-        }
-
+        viewAdapter = CustomAdapter(myList,itemClickListener)
         toolbar = supportActionBar!!
-        val bottomNavigation: BottomNavigationView = findViewById(R.id.navigation_view)
+        findViews()
+        setViews()
 
 
     }
@@ -61,6 +57,33 @@ class MainActivity : AppCompatActivity() {
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(componentName))
         return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun findViews(){
+        bottomNavigation = findViewById(R.id.navigation_view)
+        fabAddMeet = findViewById(R.id.fab)
+        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
+
+    }
+
+    private fun setViews(){
+        fabAddMeet.setOnClickListener{goToAddActivity()}
+
+
+    }
+
+    private fun goToAddActivity(){
+        val intent = Intent(this, AddMeetActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToDetailActivity(position:Int){
+        val intent = Intent(this, DetailMeetActivity::class.java)
+        startActivity(intent)
     }
 
     private fun createDummyData(){

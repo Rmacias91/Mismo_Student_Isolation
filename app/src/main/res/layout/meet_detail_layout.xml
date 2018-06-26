@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOfOf="@id/text_where_label"
+        app:layout_constraintStart_toEndOf="@id/text_where_label"
         app:layout_constraintTop_toTopOf="@id/text_where_label"
         app:layout_constraintEnd_toEndOf="parent"/>
 

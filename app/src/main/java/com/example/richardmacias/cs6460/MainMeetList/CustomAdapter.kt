@@ -8,11 +8,12 @@ import com.example.richardmacias.cs6460.Data.Card
 import com.example.richardmacias.cs6460.R
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class CustomAdapter(private val myDataset: MutableList<Card>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
-        // Provide a reference to the views for each data item
-        // Complex data items may need more than one view per item, and
-        // you provide access to all the views for a data item in a view holder.
-        // Each data item is just a string in this case that is shown in a TextView.
+class CustomAdapter(private val myDataset: MutableList<Card>, private val listener:onItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+
+     interface onItemClickListener{
+         fun itemClick(position:Int)
+    }
+
         class ViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardView)
 
 
@@ -26,9 +27,11 @@ class CustomAdapter(private val myDataset: MutableList<Card>) : RecyclerView.Ada
             return ViewHolder(cardView)
         }
 
+
         // Replace the contents of a view (invoked by the layout manager)
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val currentCard = myDataset[position]
+            holder.cardView.setOnClickListener{listener.itemClick(position)}
             holder.cardView.title_card.text = currentCard.title
             holder.cardView.category_card.text = currentCard.category
             holder.cardView.description_card.text = currentCard.description
