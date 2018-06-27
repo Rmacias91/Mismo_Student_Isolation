@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_songs"
+        android:id="@+id/navigation_meet"
         android:title="@string/meet_bot_nav"/>
 
     <item
-        android:id="@+id/navigation_albums"
+        android:id="@+id/navigation_learn"
         android:title="@string/learn_bot_nav"/>
 </menu>

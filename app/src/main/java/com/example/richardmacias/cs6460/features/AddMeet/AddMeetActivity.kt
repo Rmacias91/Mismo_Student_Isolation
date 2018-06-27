@@ -1,4 +1,4 @@
-package com.example.richardmacias.cs6460.AddMeet
+package com.example.richardmacias.cs6460.features.AddMeet
 
 import android.os.Bundle
 import android.support.v7.app.ActionBar
@@ -20,7 +20,6 @@ class AddMeetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_meet_layout)
-
 
     }
 }

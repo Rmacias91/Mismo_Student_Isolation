@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMeetList.MainActivity">
+        <activity android:name="com.example.richardmacias.cs6460.features.MainMeetList.activites.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEARCH" />
@@ -18,8 +18,12 @@
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable"/>
         </activity>
-        <activity android:name=".AddMeet.AddMeetActivity" />
-        <activity android:name=".DetailMeetActivity.DetailMeetActivity" />
+        <activity android:name="com.example.richardmacias.cs6460.features.AddMeet.AddMeetActivity" />
+        <activity android:name="com.example.richardmacias.cs6460.features.DetailMeet.DetailMeetActivity" />
+        <activity android:name=".features.ContentList.activites.ContentListActivity" />
+        <activity android:name=".features.ArticleDetail.ArticleDetailActivity" />
+        <activity android:name=".features.VideoDetail.VideoDetailActivity"
+            android:screenOrientation="landscape"  />
     </application>
 
 </manifest>

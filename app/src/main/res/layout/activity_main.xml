@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorAccent"
-    tools:context=".MainMeetList.MainActivity">
+    tools:context=".features.MainMeetList.activites.MainActivity">
 
     <android.support.design.widget.FloatingActionButton
         xmlns:app="http://schemas.android.com/apk/res-auto"

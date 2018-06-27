@@ -1,14 +1,14 @@
-package com.example.richardmacias.cs6460.MainMeetList
+package com.example.richardmacias.cs6460.features.MainMeetList.adapters
 
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.richardmacias.cs6460.Data.Card
+import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
 import com.example.richardmacias.cs6460.R
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class CustomAdapter(private val myDataset: MutableList<Card>, private val listener:onItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+class MeetAdapter(private val myDataset: MutableList<MeetCard>, private val listener: onItemClickListener) : RecyclerView.Adapter<MeetAdapter.ViewHolder>(){
 
      interface onItemClickListener{
          fun itemClick(position:Int)
@@ -19,11 +19,9 @@ class CustomAdapter(private val myDataset: MutableList<Card>, private val listen
 
         // Create new views (invoked by the layout manager)
         override fun onCreateViewHolder(parent: ViewGroup,
-                                        viewType: Int): CustomAdapter.ViewHolder {
-            // create a new view
+                                        viewType: Int): ViewHolder {
             val cardView = LayoutInflater.from(parent.context)
                     .inflate(R.layout.card_layout, parent, false) as CardView
-            // set the view's size, margins, paddings and layout parameters
             return ViewHolder(cardView)
         }
 

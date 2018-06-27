@@ -1,11 +1,11 @@
-package com.example.richardmacias.cs6460.MainMeetList
+package com.example.richardmacias.cs6460.features.MainMeetList.activites
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
-import com.example.richardmacias.cs6460.Data.Card
+import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
 import com.example.richardmacias.cs6460.R
 import android.app.SearchManager
 import android.content.Context
@@ -14,8 +14,12 @@ import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.SearchView
-import com.example.richardmacias.cs6460.AddMeet.AddMeetActivity
-import com.example.richardmacias.cs6460.DetailMeetActivity.DetailMeetActivity
+import android.view.MenuItem
+import com.example.richardmacias.cs6460.Constants.Constants
+import com.example.richardmacias.cs6460.features.AddMeet.AddMeetActivity
+import com.example.richardmacias.cs6460.features.ContentList.activites.ContentListActivity
+import com.example.richardmacias.cs6460.features.DetailMeet.DetailMeetActivity
+import com.example.richardmacias.cs6460.features.MainMeetList.adapters.MeetAdapter
 
 
 class MainActivity : AppCompatActivity(){
@@ -27,9 +31,9 @@ class MainActivity : AppCompatActivity(){
     private lateinit var fabAddMeet: FloatingActionButton
     private lateinit var bottomNavigation: BottomNavigationView
 
-    private val myList:MutableList<Card> = mutableListOf()
+    private val myList:MutableList<MeetCard> = mutableListOf()
 
-    private val itemClickListener = object:CustomAdapter.onItemClickListener{
+    private val itemClickListener = object: MeetAdapter.onItemClickListener {
         override fun itemClick(position:Int) {
             goToDetailActivity(position)
         }
@@ -41,7 +45,7 @@ class MainActivity : AppCompatActivity(){
         createDummyData()
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = CustomAdapter(myList,itemClickListener)
+        viewAdapter = MeetAdapter(myList, itemClickListener)
         toolbar = supportActionBar!!
         findViews()
         setViews()
@@ -59,6 +63,15 @@ class MainActivity : AppCompatActivity(){
         return super.onCreateOptionsMenu(menu)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            R.id.navigation_meet->{}
+            R.id.navigation_learn->goToContentList()
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun findViews(){
         bottomNavigation = findViewById(R.id.navigation_view)
         fabAddMeet = findViewById(R.id.fab)
@@ -72,7 +85,7 @@ class MainActivity : AppCompatActivity(){
 
     private fun setViews(){
         fabAddMeet.setOnClickListener{goToAddActivity()}
-
+        bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
     }
 
@@ -86,10 +99,22 @@ class MainActivity : AppCompatActivity(){
         startActivity(intent)
     }
 
+    private fun goToContentList(){
+        val intent = Intent(this, ContentListActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToMeetList(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+
+
     private fun createDummyData(){
-        val card1 = Card("Zoo After school","After school   Outdoors",
+        val card1 = MeetCard("Zoo After school", "After school   Outdoors",
                 "We're off to the Zoo after school. Anyone is welcome to join!")
-        val card2 = Card("We're playing chess at lunch!","Lunch Chess Friends",
+        val card2 = MeetCard("We're playing chess at lunch!", "Lunch Chess Friends",
                 "Anyone can sit with us. No experience needed.")
 
 
@@ -98,6 +123,24 @@ class MainActivity : AppCompatActivity(){
         myList.add(card2)
         myList.add(card2)
 
+    }
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.navigation_meet -> {
+                if(this.javaClass.simpleName != Constants.MAIN_ACTIVITY)
+                    goToMeetList()
+
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_learn -> {
+                if(this.javaClass.simpleName != Constants.CONTENT_LIST_ACTIVITY)
+                    goToContentList()
+
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
     }
 
 
