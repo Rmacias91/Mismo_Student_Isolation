@@ -113,9 +113,9 @@ class MainActivity : AppCompatActivity(){
 
     private fun createDummyData(){
         val card1 = MeetCard("Zoo After school", "After school   Outdoors",
-                "We're off to the Zoo after school. Anyone is welcome to join!")
+                "We're off to the Zoo after school. Anyone is welcome to join!","stuff","stuff",4)
         val card2 = MeetCard("We're playing chess at lunch!", "Lunch Chess Friends",
-                "Anyone can sit with us. No experience needed.")
+                "Anyone can sit with us. No experience needed.","","",4)
 
 
         myList.add(card1)
