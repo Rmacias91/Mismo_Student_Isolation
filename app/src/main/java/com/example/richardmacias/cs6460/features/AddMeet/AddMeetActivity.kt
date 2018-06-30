@@ -21,5 +21,12 @@ class AddMeetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_meet_layout)
 
+        buttonSave = findViewById(R.id.button_save_add);
+        buttonSave.setOnClickListener {
+            System.out.println("Clicked save");
+        };
+
     }
+
+
 }
