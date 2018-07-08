@@ -7,8 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import com.example.richardmacias.cs6460.R
+import com.example.richardmacias.cs6460.data.database.MeetCardDao
 import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
-import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCardDao
 
 class AddMeetActivity : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ class AddMeetActivity : AppCompatActivity() {
             System.out.println("Clicked save");
 
             var meet = buildMeetCard();
-            meetDAO.insert();MeetCard
+            meetDAO.insert(meet)
         };
 
     }
@@ -37,7 +37,7 @@ class AddMeetActivity : AppCompatActivity() {
     private fun buildMeetCard(): MeetCard {
 
         var meetCard: MeetCard = MeetCard();
-        meetCard.title =
+        meetCard.title = "What"
         return meetCard;
     }
 
