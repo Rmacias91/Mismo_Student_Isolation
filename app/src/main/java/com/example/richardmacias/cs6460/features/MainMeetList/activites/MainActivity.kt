@@ -15,6 +15,7 @@ import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.SearchView
 import android.view.MenuItem
+import android.widget.ProgressBar
 import com.example.richardmacias.cs6460.Constants.Constants
 import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.AddMeet.AddMeetActivity
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        createDummyData()
+        //createDummyData()
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = MeetAdapter(myList, itemClickListener)
@@ -106,7 +107,9 @@ class MainActivity : AppCompatActivity(){
     }
 
     private fun goToDetailActivity(position:Int){
+        val uuid:String = myList.get(position).onlineId
         val intent = Intent(this, DetailMeetActivity::class.java)
+        intent.putExtra(Constants.EXTRA_DETAIL_MEET,uuid)
         startActivity(intent)
     }
 
@@ -122,19 +125,18 @@ class MainActivity : AppCompatActivity(){
 
 
 
-    private fun createDummyData(){
-        val card1 = MeetCard("Zoo After school", "After school   Outdoors",
-                "We're off to the Zoo after school. Anyone is welcome to join!","stuff","stuff",4)
-        val card2 = MeetCard("We're playing chess at lunch!", "Lunch Chess Friends",
-                "Anyone can sit with us. No experience needed.","","",4)
-
-
-        myList.add(card1)
+//    private fun createDummyData(){
+//        val card1 = MeetCard("Zoo After school", "After school   Outdoors",
+//                "We're off to the Zoo after school. Anyone is welcome to join!","stuff","stuff",4)
+//        val card2 = MeetCard("We're playing chess at lunch!", "Lunch Chess Friends",
+//                "Anyone can sit with us. No experience needed.","","",4)
+//
+//
+//        myList.add(card1)
 //        myList.add(card2)
 //        myList.add(card2)
-//        myList.add(card2)
-
-    }
+//
+//    }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {

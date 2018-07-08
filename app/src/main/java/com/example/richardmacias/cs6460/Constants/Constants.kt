@@ -7,6 +7,7 @@ class Constants {
         const val CONTENT_LIST_ACTIVITY = "ContentListActivity"
         const val MAIN_ACTIVITY = "MainActivity"
         const val DATABASE_NAME = "myDatabase.db"
+        const val EXTRA_DETAIL_MEET = "detailMeet"
     }
 
 }

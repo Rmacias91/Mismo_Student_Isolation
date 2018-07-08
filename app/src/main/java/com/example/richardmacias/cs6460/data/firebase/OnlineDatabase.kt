@@ -11,7 +11,6 @@ class OnlineDatabase{
     private var mDatabase: DatabaseReference? = null
     private var mMeetsReference: DatabaseReference? = null
     private var meetsLive: MutableLiveData<Array<MeetCard>>
-    private var listListener:Repository.listListener? = null
 
     constructor(){
         meetsLive = MutableLiveData()
@@ -33,12 +32,16 @@ class OnlineDatabase{
 
     }
 
-      fun getMeets(listListener: Repository.listListener){
+    fun updateMeet(meetCard: MeetCard){
+        mDatabase!!.child("meets").child(meetCard.onlineId).setValue(meetCard)
+    }
+
+      fun getMeets(listener: Repository.listListener){
         val meetListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                val meets:List<MeetCard> =  dataSnapshot.children.mapNotNull { it.getValue<MeetCard>(MeetCard::class.java) }
                 Log.d("richie",meets.size.toString())
-                listListener.onDataLoaded(meets)
+                listener.onDataLoaded(meets)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -47,6 +50,23 @@ class OnlineDatabase{
         }
         mDatabase!!.child("meets").addListenerForSingleValueEvent(meetListener)
     }
+
+    fun getMeet(listener: Repository.itemListener,id:String){
+        val meetListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+               val meet:MeetCard? = dataSnapshot.child(id).getValue(MeetCard::class.java)
+                Log.d("richie",meet!!.title)
+                listener.onDataLoaded(meet)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("loadPost:onCancelled ${databaseError.toException()}")
+            }
+        }
+        mDatabase!!.child("meet").addListenerForSingleValueEvent(meetListener)
+    }
+
+
 
     private fun setReference(){
         mDatabase = FirebaseDatabase.getInstance().reference

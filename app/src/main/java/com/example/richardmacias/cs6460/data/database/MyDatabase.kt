@@ -11,13 +11,13 @@ import com.example.richardmacias.cs6460.Utils.SingletonHolder
 
 
 @Database(entities = [(MeetCard::class), (ContentCard::class)], version = 1)
-abstract class myDatabase: RoomDatabase() {
+abstract class MyDatabase: RoomDatabase() {
 
     abstract fun meetCardDao(): MeetCardDao
     abstract fun contentCardDao(): ContentCardDao
 
-    companion object : SingletonHolder<myDatabase, Context>({
-        Room.databaseBuilder(it, myDatabase::class.java, Constants.DATABASE_NAME).build()
+    companion object : SingletonHolder<MyDatabase, Context>({
+        Room.databaseBuilder(it, MyDatabase::class.java, Constants.DATABASE_NAME).build()
     })
 
 

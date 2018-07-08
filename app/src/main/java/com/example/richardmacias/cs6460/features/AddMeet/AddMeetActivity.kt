@@ -23,20 +23,19 @@ class AddMeetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_meet_layout)
-//        meetDAO = new MeetDAO()
         buttonSave = findViewById(R.id.button_save_add);
         buttonSave.setOnClickListener {
             System.out.println("Clicked save");
 
             var meet = buildMeetCard();
             meetDAO.insert(meet)
-        };
+        }
 
     }
 
     private fun buildMeetCard(): MeetCard {
 
-        var meetCard: MeetCard = MeetCard();
+        var meetCard = MeetCard();
         meetCard.title = "What"
         return meetCard;
     }
