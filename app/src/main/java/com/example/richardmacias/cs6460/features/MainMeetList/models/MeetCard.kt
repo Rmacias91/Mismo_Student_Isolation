@@ -16,4 +16,7 @@ class MeetCard( @PrimaryKey(autoGenerate = true) var id:Long=0,
 constructor(title:String, category: String, description: String, date: String, location:String ,numberGoing: Int):
         this(0,title,category,description,date,location, numberGoing)
 
+    constructor(): this(null, "", "", "", "", "", 0)
+
 }
+
