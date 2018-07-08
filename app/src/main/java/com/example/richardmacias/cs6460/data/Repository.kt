@@ -3,34 +3,45 @@ package com.example.richardmacias.cs6460.data
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
+import android.util.Log
 import com.example.richardmacias.cs6460.Utils.SingletonHolder
 import com.example.richardmacias.cs6460.data.firebase.OnlineDatabase
 import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
 
 
-class Repository constructor(//private val meetCardDao: MeetCardDao,
+class Repository private constructor()//private val meetCardDao: MeetCardDao,
                                      //private val contentCardDao: ContentCardDao,
                                      //private val fireBaseDataSource: OnlineDatabase,
                                      //private val mExecutors: AppExecutors) {
-){
+{
     interface listListener{
         fun onDataLoaded(meets:List<MeetCard>)
     }
 
     interface itemListener{
-        fun onDataLoaded(meet:MeetCard)
+        fun onDataLoaded(meetCard: MeetCard)
+    }
+
+    companion object {
+        private var sInstance: Repository? = null
+        private val LOCK = Any()
+
+        @Synchronized
+        fun getInstance(): Repository? {
+            if (sInstance == null) {
+                synchronized(LOCK) {
+                    sInstance = Repository()
+                }
+            }
+            return sInstance
+        }
     }
 
 
 
-    companion object : SingletonHolder<Repository, Context>({
-        Repository()
-    })
-
-
 
     val firebaseDataSource:OnlineDatabase = OnlineDatabase()
-    var liveMeets:LiveData<Array<MeetCard>> = MutableLiveData()
+    //var liveMeets:LiveData<Array<MeetCard>> = MutableLiveData()
 
 //    fun getMeets():LiveData<Array<MeetCard>>{
 //        return liveMeets

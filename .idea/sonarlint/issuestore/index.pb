@@ -47,12 +47,6 @@ bapp/src/main/java/com/example/richardmacias/cs6460/features/ArticleDetail/Artic
 ^app/src/main/java/com/example/richardmacias/cs6460/features/VideoDetail/VideoDetailActivity.kt,9/6/96e66541d40e8f97264a9fbc85fe3c5044acbac0
 ò
 happ/src/main/java/com/example/richardmacias/cs6460/features/ContentList/activites/ContentListActivity.kt,b/f/bfbdff8b75eeded601e5a8a3155b7dabdc823acd
-ê
-`app/src/main/java/com/example/richardmacias/cs6460/features/ContentList/models/ContentCardDao.kt,b/0/b0bb3eebf82a7bc1c4744f9a8c4cb10b47ecdab3
-é
-^app/src/main/java/com/example/richardmacias/cs6460/features/MainMeetList/models/MeetCardDao.kt,2/0/202bd106207574e70aaae0ba5e031997df2a6238
-u
-Eapp/src/main/java/com/example/richardmacias/cs6460/data/myDatabase.kt,f/c/fc968257f271d4dc0bcc6721b7574e181d0db45a
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 ç
@@ -61,3 +55,13 @@ Eapp/src/main/java/com/example/richardmacias/cs6460/data/myDatabase.kt,f/c/fc96
 Kapp/src/main/java/com/example/richardmacias/cs6460/Utils/SingletonHolder.kt,f/0/f04292de867ac07b2685024321faedd720634de7
 ì
 capp/src/main/java/com/example/richardmacias/cs6460/features/ArticleDetail/DetailContentViewModel.kt,e/f/efe9911f599e88bfd4969569d38f64d0fdb23129
+Ç
+Rapp/src/main/java/com/example/richardmacias/cs6460/data/database/ContentCardDao.kt,1/1/11c18a6f06c288488f7a131049394bc5fec5b58f
+r
+Bapp/src/main/java/com/example/richardmacias/cs6460/AppExecutors.kt,d/9/d95f6dd1efca5da3e55a0d6f0397328663b3cb06
+~
+Napp/src/main/java/com/example/richardmacias/cs6460/data/database/MyDatabase.kt,b/b/bb663d9f56949347b0d7e21e74602dc252e7e913
+Ç
+Rapp/src/main/java/com/example/richardmacias/cs6460/data/firebase/OnlineDatabase.kt,1/0/1088e99a2f5ba9f085d68c82656902466b9666c2
+u
+Eapp/src/main/java/com/example/richardmacias/cs6460/data/Repository.kt,d/9/d9911585fd9491ed75c48ad1ea6004385edbe8e3

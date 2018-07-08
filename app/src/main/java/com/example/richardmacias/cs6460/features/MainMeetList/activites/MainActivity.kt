@@ -15,6 +15,7 @@ import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.SearchView
 import android.view.MenuItem
+import android.view.View
 import android.widget.ProgressBar
 import com.example.richardmacias.cs6460.Constants.Constants
 import com.example.richardmacias.cs6460.data.Repository
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var toolbar: ActionBar
     private lateinit var fabAddMeet: FloatingActionButton
     private lateinit var bottomNavigation: BottomNavigationView
+    private lateinit var progressBar: ProgressBar
 
     private val myList:MutableList<MeetCard> = mutableListOf()
 
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity(){
 
     private val onDataLoaded = object:Repository.listListener{
         override fun onDataLoaded(meets:List<MeetCard>) {
+            progressBar.visibility = View.GONE
             myList.clear()
             myList.addAll(meets)
             viewAdapter.notifyDataSetChanged()
@@ -60,8 +63,9 @@ class MainActivity : AppCompatActivity(){
         toolbar = supportActionBar!!
         findViews()
         setViews()
-        val repository = Repository()
-        repository.initDB()
+        progressBar.visibility = View.VISIBLE
+        val repository = Repository.getInstance()
+        repository!!.initDB()
         repository.getMeets(onDataLoaded)
     }
 
@@ -87,6 +91,7 @@ class MainActivity : AppCompatActivity(){
     private fun findViews(){
         bottomNavigation = findViewById(R.id.navigation_view)
         fabAddMeet = findViewById(R.id.fab)
+        progressBar = findViewById(R.id.progress_bar_main)
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager

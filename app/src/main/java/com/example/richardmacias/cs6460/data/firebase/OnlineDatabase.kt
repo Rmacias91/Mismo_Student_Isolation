@@ -18,18 +18,6 @@ class OnlineDatabase{
 
     fun initDatabase() {
         setReference()
-        val meets: MutableList<MeetCard> = mutableListOf(
-                MeetCard("Zoo After school", "After school   Outdoors",
-        "We're off to the Zoo after school. Anyone is welcome to join!","stuff","stuff",4),
-                MeetCard("We're playing chess at lunch!", "Lunch Chess Friends",
-                "Anyone can sit with us. No experience needed.","","",4)
-        )
-        meets.forEach {
-            val key = mDatabase!!.child("meets").push().key
-            it.onlineId = key
-            mDatabase!!.child("meets").child(key).setValue(it)
-        }
-
     }
 
     fun updateMeet(meetCard: MeetCard){
@@ -54,16 +42,16 @@ class OnlineDatabase{
     fun getMeet(listener: Repository.itemListener,id:String){
         val meetListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-               val meet:MeetCard? = dataSnapshot.child(id).getValue(MeetCard::class.java)
-                Log.d("richie",meet!!.title)
-                listener.onDataLoaded(meet)
+               val meetCard:MeetCard? = dataSnapshot.child(id).getValue(MeetCard::class.java)
+                Log.d("richie",meetCard!!.title)
+                listener.onDataLoaded(meetCard)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 println("loadPost:onCancelled ${databaseError.toException()}")
             }
         }
-        mDatabase!!.child("meet").addListenerForSingleValueEvent(meetListener)
+        mDatabase!!.child("meets").addListenerForSingleValueEvent(meetListener)
     }
 
 
