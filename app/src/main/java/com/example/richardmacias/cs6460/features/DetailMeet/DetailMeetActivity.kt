@@ -30,7 +30,7 @@ class DetailMeetActivity : AppCompatActivity(){
 
         //This returns a view model and will not re-create if on already exists.
         viewModel = ViewModelProviders.of(this).get(DetailMeetViewModel::class.java)
-        viewModel.getContent().observe(this, Observer<MeetCard> { meetCard ->
+        viewModel.getMeet().observe(this, Observer<MeetCard> { meetCard ->
             if (meetCard != null) bindMeetCardToUI(meetCard)
         })
     }
@@ -57,6 +57,6 @@ class DetailMeetActivity : AppCompatActivity(){
         counter++
         val card = MeetCard("We're playing chess at lunch!", "Lunch Chess Friends",
                 "Anyone can sit with us. No experience needed.","","",counter)
-        viewModel.setContent(card)
+        viewModel.setMeet(card)
     }
 }

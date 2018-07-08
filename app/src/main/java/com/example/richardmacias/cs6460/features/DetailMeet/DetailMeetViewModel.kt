@@ -9,11 +9,11 @@ class DetailMeetViewModel:ViewModel(){
 
     private var meetCard:MutableLiveData<MeetCard> = MutableLiveData()
 
-    fun getContent():LiveData<MeetCard>{
+    fun getMeet():LiveData<MeetCard>{
         return  meetCard
     }
 
-    fun setContent(meetCard:MeetCard){
+    fun setMeet(meetCard:MeetCard){
        this.meetCard.postValue(meetCard)
     }
 }

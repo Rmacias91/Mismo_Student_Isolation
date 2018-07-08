@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBar
 import android.support.v7.widget.SearchView
 import android.view.MenuItem
 import com.example.richardmacias.cs6460.Constants.Constants
+import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.AddMeet.AddMeetActivity
 import com.example.richardmacias.cs6460.features.ContentList.activites.ContentListActivity
 import com.example.richardmacias.cs6460.features.DetailMeet.DetailMeetActivity
@@ -39,6 +40,15 @@ class MainActivity : AppCompatActivity(){
         }
     }
 
+    private val onDataLoaded = object:Repository.listListener{
+        override fun onDataLoaded(meets:List<MeetCard>) {
+            myList.clear()
+            myList.addAll(meets)
+            viewAdapter.notifyDataSetChanged()
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,8 +59,9 @@ class MainActivity : AppCompatActivity(){
         toolbar = supportActionBar!!
         findViews()
         setViews()
-
-
+        val repository = Repository()
+        repository.initDB()
+        repository.getMeets(onDataLoaded)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -119,9 +130,9 @@ class MainActivity : AppCompatActivity(){
 
 
         myList.add(card1)
-        myList.add(card2)
-        myList.add(card2)
-        myList.add(card2)
+//        myList.add(card2)
+//        myList.add(card2)
+//        myList.add(card2)
 
     }
 

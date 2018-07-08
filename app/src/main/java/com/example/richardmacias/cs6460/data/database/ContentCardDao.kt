@@ -1,8 +1,9 @@
-package com.example.richardmacias.cs6460.features.ContentList.models
+package com.example.richardmacias.cs6460.data.database
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
+import com.example.richardmacias.cs6460.features.ContentList.models.ContentCard
 
 @Dao
 interface ContentCardDao {

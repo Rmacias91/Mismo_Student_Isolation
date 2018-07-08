@@ -53,3 +53,11 @@ happ/src/main/java/com/example/richardmacias/cs6460/features/ContentList/activit
 ^app/src/main/java/com/example/richardmacias/cs6460/features/MainMeetList/models/MeetCardDao.kt,2/0/202bd106207574e70aaae0ba5e031997df2a6238
 u
 Eapp/src/main/java/com/example/richardmacias/cs6460/data/myDatabase.kt,f/c/fc968257f271d4dc0bcc6721b7574e181d0db45a
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+
+]app/src/main/java/com/example/richardmacias/cs6460/features/DetailMeet/DetailMeetViewModel.kt,5/e/5e96cf02584a7b0c553cd7bb08dec72b8b906beb
+{
+Kapp/src/main/java/com/example/richardmacias/cs6460/Utils/SingletonHolder.kt,f/0/f04292de867ac07b2685024321faedd720634de7
+“
+capp/src/main/java/com/example/richardmacias/cs6460/features/ArticleDetail/DetailContentViewModel.kt,e/f/efe9911f599e88bfd4969569d38f64d0fdb23129
