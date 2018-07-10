@@ -20,6 +20,8 @@
     <string name="button_join_detail">Join</string>
     <string name="cancel_action">Cancel</string>
     <string name="done_action">Done</string>
+    <string name="text_where_add">Location</string>
+    <string name="hint_where_add">Enter location here</string>
 
     <string-array name="categories">
         <item>Board Games</item>

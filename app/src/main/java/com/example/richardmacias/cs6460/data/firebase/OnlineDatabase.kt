@@ -54,6 +54,12 @@ class OnlineDatabase{
         mDatabase!!.child("meets").addListenerForSingleValueEvent(meetListener)
     }
 
+    fun addMeet(meetCard: MeetCard){
+        val key = mDatabase!!.child("meets").push().key
+        meetCard.onlineId = key
+        mDatabase!!.child("meets").child(key).setValue(meetCard)
+    }
+
 
 
     private fun setReference(){

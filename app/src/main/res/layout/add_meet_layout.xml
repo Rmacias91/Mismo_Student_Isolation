@@ -46,6 +46,30 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+        android:id="@+id/text_where_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_where_add"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/edit_title_add"
+        app:layout_constraintTop_toBottomOf="@id/edit_title_add" />
+
+    <EditText
+        android:id="@+id/edit_where_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_where_add"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@id/text_where_add"
+        app:layout_constraintTop_toBottomOf="@id/text_where_add"/>
+
+    <TextView
         android:id="@+id/text_date_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,8 +80,8 @@
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/edit_title_add"
-        app:layout_constraintTop_toBottomOf="@id/edit_title_add" />
+        app:layout_constraintStart_toStartOf="@id/edit_where_add"
+        app:layout_constraintTop_toBottomOf="@id/edit_where_add" />
 
     <Button
         android:id="@+id/button_date_add"
@@ -89,6 +113,7 @@
         android:id="@+id/spinner_category_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:entries="@array/categories"
         app:layout_constraintStart_toStartOf="@id/text_category_add"
         app:layout_constraintTop_toBottomOf="@id/text_category_add"/>
 
@@ -124,14 +149,16 @@
         android:id="@+id/button_save_add"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/button_save_add"
-        android:gravity="center"
         android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="@string/button_save_add"
         android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="@id/edit_details_add"
         app:layout_constraintTop_toBottomOf="@id/edit_details_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.264" />
 
     <include
         layout="@layout/bottom_nav_bar"

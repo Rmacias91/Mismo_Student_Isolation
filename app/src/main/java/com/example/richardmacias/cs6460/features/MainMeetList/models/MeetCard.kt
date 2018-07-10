@@ -10,7 +10,7 @@ class MeetCard( @PrimaryKey(autoGenerate = true) var id:Long=0,
                 var description:String="",
                 var date:String="",
                 var location:String="",
-                var numberGoing:Int=0,
+                var numberGoing:Int=1,
                 var onlineId:String=""){
 
 constructor(title:String, category: String, description: String, date: String, location:String ,numberGoing: Int):

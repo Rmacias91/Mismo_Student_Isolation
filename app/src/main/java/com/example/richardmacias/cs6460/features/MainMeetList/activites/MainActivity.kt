@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity(){
     }
 
 
-
+//
 //    private fun createDummyData(){
 //        val card1 = MeetCard("Zoo After school", "After school   Outdoors",
 //                "We're off to the Zoo after school. Anyone is welcome to join!","stuff","stuff",4)

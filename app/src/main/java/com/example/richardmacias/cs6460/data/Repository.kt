@@ -52,7 +52,7 @@ class Repository private constructor()//private val meetCardDao: MeetCardDao,
     }
 
     fun getMeets(listener: listListener){
-        firebaseDataSource.getMeets(listener);
+        firebaseDataSource.getMeets(listener)
     }
 
     fun getMeet(listener: itemListener, id:String){
@@ -61,5 +61,9 @@ class Repository private constructor()//private val meetCardDao: MeetCardDao,
 
     fun updateMeet(meetCard: MeetCard){
         firebaseDataSource.updateMeet(meetCard)
+    }
+
+    fun addMeet(meetCard:MeetCard){
+        firebaseDataSource.addMeet(meetCard)
     }
 }
