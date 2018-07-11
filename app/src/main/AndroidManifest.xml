@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.richardmacias.cs6460">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -24,6 +25,7 @@
         <activity android:name=".features.ArticleDetail.ArticleDetailActivity" />
         <activity android:name=".features.VideoDetail.VideoDetailActivity"
             android:screenOrientation="landscape"  />
+
     </application>
 
 </manifest>
