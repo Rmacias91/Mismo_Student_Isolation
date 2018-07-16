@@ -8,9 +8,15 @@ class ContentCard(@PrimaryKey(autoGenerate = true) var id:Long?,
                   var title:String,
                   var category:String,
                   var description:String,
-                  var isArticle:Boolean){
+                  var isArticle:Boolean,
+                  var onlineId:String="",
+                  var link:String=""){
 
-    constructor(title:String, category:String, description:String, isArticle:Boolean) :
-            this(null,title,category,description,isArticle)
+    constructor(title:String, category:String, description:String, isArticle:Boolean, link: String) :
+            this(null,title,category,description,isArticle, link)
+
+
+    constructor():
+            this("","","",false,"")
 }
 

@@ -1,0 +1,6 @@
+
+ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïš„úøÿÿÿÿ8¸³±µÈ,
+‹"squid:ClassVariableVisibilityCheck"SMake service a static final constant or non-public and provide accessors if needed.(è¿ˆ¯ûÿÿÿÿ8¸³±µÈ,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÓªÕ¥úÿÿÿÿ8ì’ÝµÈ,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÓªÕ¥úÿÿÿÿ8Ä«ÓµÈ,
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(›…ÿã8¸³±µÈ,

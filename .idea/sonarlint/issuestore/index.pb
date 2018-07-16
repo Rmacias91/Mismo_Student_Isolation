@@ -65,3 +65,13 @@ Napp/src/main/java/com/example/richardmacias/cs6460/data/database/MyDatabase.kt
 Rapp/src/main/java/com/example/richardmacias/cs6460/data/firebase/OnlineDatabase.kt,1/0/1088e99a2f5ba9f085d68c82656902466b9666c2
 u
 Eapp/src/main/java/com/example/richardmacias/cs6460/data/Repository.kt,d/9/d9911585fd9491ed75c48ad1ea6004385edbe8e3
+†
+Vapp/src/main/java/com/example/richardmacias/cs6460/data/tedTalkApi/models/TedTalk.java,8/c/8c6122eb7051d977575da8d63c151964088d6e49
+Ž
+^app/src/main/java/com/example/richardmacias/cs6460/data/tedTalkApi/models/TedTalkResponse.java,a/0/a0646eace3f9bc9ccb6659457b6c8d7fa9fa081b
+‚
+Rapp/src/main/java/com/example/richardmacias/cs6460/data/tedTalkApi/TedTalkApi.java,7/7/77e5f255a8869061c112b77f67c9bc3ede9f3d7a
+†
+Vapp/src/main/java/com/example/richardmacias/cs6460/data/tedTalkApi/TedTalkService.java,2/d/2d7dfd31cfc16f1cfaec6ecd9f96556fecfee476
+n
+>app/src/main/java/com/example/richardmacias/cs6460/Config.java,8/c/8c67602c013028d86c216cb7874a349760ccc4cc
