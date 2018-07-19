@@ -1,6 +1,5 @@
 package com.example.richardmacias.cs6460.features.MainMeetList.activites
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -10,14 +9,13 @@ import com.example.richardmacias.cs6460.R
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.SearchView
-import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import com.example.richardmacias.cs6460.Constants.Constants
+import com.example.richardmacias.cs6460.core.BaseActivity
 import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.AddMeet.AddMeetActivity
 import com.example.richardmacias.cs6460.features.ContentList.activites.ContentListActivity
@@ -25,14 +23,13 @@ import com.example.richardmacias.cs6460.features.DetailMeet.DetailMeetActivity
 import com.example.richardmacias.cs6460.features.MainMeetList.adapters.MeetAdapter
 
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : BaseActivity(){
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var toolbar: ActionBar
     private lateinit var fabAddMeet: FloatingActionButton
-    private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var progressBar: ProgressBar
 
     private val myList:MutableList<MeetCard> = mutableListOf()
@@ -56,7 +53,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //createDummyData()
+
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = MeetAdapter(myList, itemClickListener)
@@ -79,17 +76,9 @@ class MainActivity : AppCompatActivity(){
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId){
-            R.id.navigation_meet->{}
-            R.id.navigation_learn->goToContentList()
-
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     private fun findViews(){
-        bottomNavigation = findViewById(R.id.navigation_view)
+        //bottomNavigation = findViewById(R.id.navigation_view)
         fabAddMeet = findViewById(R.id.fab)
         progressBar = findViewById(R.id.progress_bar_main)
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
@@ -102,7 +91,9 @@ class MainActivity : AppCompatActivity(){
 
     private fun setViews(){
         fabAddMeet.setOnClickListener{goToAddActivity()}
-        bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        //bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        toolbar.title = "Who wants to hang out?"
+        setUpNavBar()
 
     }
 
@@ -123,10 +114,10 @@ class MainActivity : AppCompatActivity(){
         startActivity(intent)
     }
 
-    private fun goToMeetList(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
+//    private fun goToMeetList(){
+//        val intent = Intent(this, MainActivity::class.java)
+//        startActivity(intent)
+//    }
 
 
 //
@@ -143,23 +134,23 @@ class MainActivity : AppCompatActivity(){
 //
 //    }
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_meet -> {
-                if(this.javaClass.simpleName != Constants.MAIN_ACTIVITY)
-                    goToMeetList()
-
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_learn -> {
-                if(this.javaClass.simpleName != Constants.CONTENT_LIST_ACTIVITY)
-                    goToContentList()
-
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
+//    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+//        when (item.itemId) {
+//            R.id.navigation_meet -> {
+//                if(this.javaClass.simpleName != Constants.MAIN_ACTIVITY)
+//                    goToMeetList()
+//
+//                return@OnNavigationItemSelectedListener true
+//            }
+//            R.id.navigation_learn -> {
+//                if(this.javaClass.simpleName != Constants.CONTENT_LIST_ACTIVITY)
+//                    goToContentList()
+//
+//                return@OnNavigationItemSelectedListener true
+//            }
+//        }
+//        false
+//    }
 
 
 

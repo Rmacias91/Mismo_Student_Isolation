@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.example.richardmacias.cs6460.Constants.Constants
 import com.example.richardmacias.cs6460.R
+import com.example.richardmacias.cs6460.core.BaseActivity
 import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.ArticleDetail.ArticleDetailActivity
 import com.example.richardmacias.cs6460.features.ContentList.adapters.ContentAdapter
@@ -20,7 +21,7 @@ import com.example.richardmacias.cs6460.features.MainMeetList.activites.MainActi
 import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
 import com.example.richardmacias.cs6460.features.VideoDetail.VideoDetailActivity
 
-class ContentListActivity : AppCompatActivity() {
+class ContentListActivity : BaseActivity() {
 
     private val itemClickListener = object:ContentAdapter.onItemClickListener{
         override fun itemClick(position:Int, isArticle:Boolean) {
@@ -33,7 +34,6 @@ class ContentListActivity : AppCompatActivity() {
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var toolbar: ActionBar
     private lateinit var fabAddVideo: FloatingActionButton
-    private lateinit var bottomNavigation: BottomNavigationView
 
     private val myList:MutableList<ContentCard> = mutableListOf()
 
@@ -59,11 +59,9 @@ class ContentListActivity : AppCompatActivity() {
         val repository = Repository.getInstance()
         repository!!.initDB()
         repository.getContent(onDataLoaded)
-
     }
 
     private fun findViews(){
-        bottomNavigation = findViewById(R.id.navigation_view)
         fabAddVideo = findViewById(R.id.fab)
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
             setHasFixedSize(true)
@@ -73,27 +71,19 @@ class ContentListActivity : AppCompatActivity() {
     }
 
     private fun setViews(){
-        bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        setUpNavBar()
         fabAddVideo.visibility = View.GONE
 
     }
 
-    private fun goToContentList(){
-        val intent = Intent(this, ContentListActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun goToMeetList(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-    private fun goToArticle(){
+    private fun goToArticle(position:Int){
         val intent = Intent(this, ArticleDetailActivity::class.java)
+        intent.putExtra("link",myList[position].link)
         startActivity(intent)
     }
     private fun goToVideo(postion: Int){
         val intent = Intent(this, VideoDetailActivity::class.java)
-        intent.putExtra("link",myList.get(postion).link)
+        intent.putExtra("link",myList[postion].link)
         startActivity(intent)
     }
 
@@ -101,28 +91,12 @@ class ContentListActivity : AppCompatActivity() {
 
     private fun goToContentDetail(postion:Int, isArticle:Boolean){
         if(isArticle)
-            goToArticle()
+            goToArticle(postion)
         else
             goToVideo(postion)
     }
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_meet -> {
-                if(this.javaClass.simpleName != Constants.MAIN_ACTIVITY)
-                    goToMeetList()
 
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_learn -> {
-                if(this.javaClass.simpleName != Constants.CONTENT_LIST_ACTIVITY)
-                    goToContentList()
-
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
 
     private fun createVideoCards(repository: Repository){
 
@@ -134,32 +108,32 @@ class ContentListActivity : AppCompatActivity() {
 
         val video2 = ContentCard("Think Fast, Talk Smart: Communication Techniques",
                 "Communication","Stanford Graduate School of Business",
-                false,link="HAnw168huqA")
+                false,"HAnw168huqA")
 
         val video3 = ContentCard("Conversation Hacking: How To Instantly Upgrade Your Conversation Skills",
                 "Communication","21 Studios",
-                false,link="uYuACPtiOjU")
+                false,"uYuACPtiOjU")
 
         val video4 = ContentCard("Body Language Expert Keynote Mark Bowden at TEDx Toronto — " +
                 "The Importance Of Being Inauthentic",
                 "Communication","Mark Bowden",
-                false,link="rk_SMBIW1mg")
+                false,"rk_SMBIW1mg")
 
         val video5 = ContentCard("The skill of self confidence ",
                 "Confidence","Dr. Ivan Joseph TedX Talks",
-                false,link="w-HYZv6HzAs")
+                false,"w-HYZv6HzAs")
 
         val video6 = ContentCard("10 ways to have a better conversation",
                 "Communication","Celeste Headlee Ted",
-                false,link="R1vskiVDwl4")
+                false,"R1vskiVDwl4")
 
         val video7 = ContentCard("10 ways to have a better conversation",
                 "Confidence","Celeste Headlee Ted",
-                false,link="R1vskiVDwl4")
+                false,"R1vskiVDwl4")
 
         val video8 = ContentCard("How to engage in better small talk",
                 "Communication","Minister Faust TedX Talks",
-                false,link="4F-S6rgf1-E")
+                false,"4F-S6rgf1-E")
 
         videos.add(video1)
         videos.add(video2)
@@ -171,6 +145,52 @@ class ContentListActivity : AppCompatActivity() {
         videos.add(video8)
 
         repository.createVideos(videos)
+    }
+
+    fun createArticles(repository: Repository){
+        var articles:ArrayList<ContentCard> = arrayListOf()
+        val article1 = ContentCard("How to Make Friends And Get a Social Life",
+                "Social Skills","A fairly common social issue people have is that they're not sure how to make friends and put together a social life for themselves.",
+                true,"https://www.succeedsocially.com/sociallife")
+
+        val article2 = ContentCard("How To Grow And Deepen New Friendships\n",
+                "Social Skills","The concepts I'll describe below often happen automatically as a friendship progresses, but you can take more control of your social life by deliberately trying to use them.",
+                true,"https://www.succeedsocially.com/deepenfriendship")
+
+        val article3 = ContentCard("How To Meet People",
+                "Social Skills","Sometimes people have lots of potential friends in their lives and they just need to do more to try to hang out with them and start a relationship.",
+                true,"https://www.succeedsocially.com/meetpeople")
+
+        val article4 = ContentCard("How To Find Events And Clubs In Your Community",
+                "Social Skills","I find most communities have way more going on in them than you may think at first.",
+                true,"https://www.succeedsocially.com/findinglocalevents")
+
+        val article5 = ContentCard("How To Make Friends When You Have No Friends",
+                "Social Skills","A group that feels like the process of building a social life is harder for them are people who don't have any friends at all. ",
+                true,"https://www.succeedsocially.com/makingfriendsnofriends")
+
+        val article6 = ContentCard("Changing Your Social Skills vs. Changing Your Entire Identity And Personality",
+                "Social Skills","Some people aren't keen on the idea of having to changing how they come across socially.",
+                true,"https://www.succeedsocially.com/skillsvspersonality")
+
+        val article7 = ContentCard("Why Even Be More Social In The First Place?",
+                "Social Skills","I'll cover the issue with a focus on the perspective of someone who's more skeptical about the point of being social.",
+                true,"https://www.succeedsocially.com/whybesocial")
+
+        val article8 = ContentCard("How To Join A Conversation",
+                "Social Skills","Before trying to talk to a group of people you have to try to get a sense of how open or closed off they are.",
+                true,"https://www.succeedsocially.com/joinconversations")
+        articles.add(article1)
+        articles.add(article2)
+        articles.add(article3)
+        articles.add(article4)
+        articles.add(article5)
+        articles.add(article6)
+        articles.add(article7)
+        articles.add(article8)
+
+        repository.createVideos(articles)
+
 
     }
 }

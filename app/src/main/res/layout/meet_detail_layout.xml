@@ -139,36 +139,40 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:paddingRight="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/text_add_info_label"
                 app:layout_constraintTop_toTopOf="@id/text_add_info_label" />
 
-            <Button
-                android:id="@+id/button_join_detail"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@color/colorPrimary"
-                android:text="@string/button_join_detail"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.456"
-                app:layout_constraintStart_toStartOf="@id/text_add_info_label"
-                app:layout_constraintTop_toBottomOf="@id/text_add_info_detail" />
 
             <include
                 layout="@layout/bottom_nav_bar"
+                android:id="@+id/navigation_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/button_join_detail"
                 app:layout_constraintVertical_bias="1.0" />
 
+        <Button
+            android:id="@+id/button_join_detail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_join_detail"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_add_info_label"
+            app:layout_constraintTop_toBottomOf="@id/text_add_info_detail"
+            app:layout_constraintBottom_toTopOf="@id/navigation_view"/>
 
-        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </ScrollView>

@@ -7,13 +7,14 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.*
 import com.example.richardmacias.cs6460.R
+import com.example.richardmacias.cs6460.core.BaseActivity
 import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AddMeetActivity : AppCompatActivity() {
+class AddMeetActivity : BaseActivity() {
 
     private lateinit var editTitle: EditText
     private lateinit var buttonDate: Button
@@ -50,7 +51,7 @@ class AddMeetActivity : AppCompatActivity() {
 
     private fun setViews(){
         buttonSave.setOnClickListener{save()}
-
+        setUpNavBar()
         val adapter = ArrayAdapter.createFromResource(this, R.array.categories,android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCategory.adapter = adapter

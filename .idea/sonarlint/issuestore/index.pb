@@ -75,3 +75,9 @@ Rapp/src/main/java/com/example/richardmacias/cs6460/data/tedTalkApi/TedTalkApi.j
 Vapp/src/main/java/com/example/richardmacias/cs6460/data/tedTalkApi/TedTalkService.java,2/d/2d7dfd31cfc16f1cfaec6ecd9f96556fecfee476
 n
 >app/src/main/java/com/example/richardmacias/cs6460/Config.java,8/c/8c67602c013028d86c216cb7874a349760ccc4cc
+R
+"app/src/main/res/values/styles.xml,f/7/f79cc2688e29fcbc286fda14ae07b27c9e83690f
+R
+"app/src/main/res/values/colors.xml,9/6/969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
+w
+Gapp/src/main/java/com/example/richardmacias/cs6460/core/BaseActivity.kt,b/8/b824e07f9bf77b02ab9dfafbedc6af681306cdb6

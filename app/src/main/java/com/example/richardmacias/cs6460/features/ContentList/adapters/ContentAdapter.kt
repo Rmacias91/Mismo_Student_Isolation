@@ -33,7 +33,7 @@ class ContentAdapter(private val cards:MutableList<ContentCard>,
         holder.cardView.title_card.text = currentCard.title
         holder.cardView.category_card.text = currentCard.category
         holder.cardView.description_card.text = currentCard.description
-        holder.cardView.image_card.setImageResource(R.drawable.dummyimage)
+        holder.cardView.image_card.setImageResource(R.drawable.social)
     }
 
 
