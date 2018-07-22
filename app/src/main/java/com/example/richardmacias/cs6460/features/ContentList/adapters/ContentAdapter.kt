@@ -4,6 +4,7 @@ import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.richardmacias.cs6460.Constants.Constants
 import com.example.richardmacias.cs6460.R
 import com.example.richardmacias.cs6460.features.ContentList.models.ContentCard
 import kotlinx.android.synthetic.main.card_layout.view.*
@@ -33,7 +34,10 @@ class ContentAdapter(private val cards:MutableList<ContentCard>,
         holder.cardView.title_card.text = currentCard.title
         holder.cardView.category_card.text = currentCard.category
         holder.cardView.description_card.text = currentCard.description
-        holder.cardView.image_card.setImageResource(R.drawable.social)
+        when {
+            currentCard.isArticle -> holder.cardView.image_card.setImageResource(R.drawable.article)
+            else -> holder.cardView.image_card.setImageResource(R.drawable.video)
+        }
     }
 
 

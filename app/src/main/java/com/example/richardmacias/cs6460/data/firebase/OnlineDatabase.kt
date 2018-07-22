@@ -61,25 +61,29 @@ class OnlineDatabase{
         mDatabase!!.child("meets").child(key).setValue(meetCard)
     }
 
-    fun addContentVideos(videoContent:ContentCard){
-        val key = mDatabase!!.child("content").push().key
-        videoContent.onlineId = key
-        mDatabase!!.child("content").child(key).setValue(videoContent)
-    }
-
-    fun getDetailContent(listener: Repository.contentDetailListener,id:String){
-        val contentDetailListener = object : ValueEventListener {
+    fun deleteOldMeets(meetId: String) {
+        val deleteListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val contentCard:ContentCard? = dataSnapshot.child(id).getValue(ContentCard::class.java)
-                Log.d("richie",contentCard!!.title)
-                listener.onDataLoaded(contentCard);
+                if (dataSnapshot.children.count() > 0) {
+                    for (itemSnapshot in dataSnapshot.children) {
+                        itemSnapshot.ref.removeValue()
+                    }
+                }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 println("loadPost:onCancelled ${databaseError.toException()}")
             }
+
         }
-        mDatabase!!.child("content").addListenerForSingleValueEvent(contentDetailListener)
+        mDatabase!!.child("meets").orderByKey().equalTo(meetId).addListenerForSingleValueEvent(deleteListener)
+
+    }
+
+    fun addContentVideos(videoContent:ContentCard){
+        val key = mDatabase!!.child("content").push().key
+        videoContent.onlineId = key
+        mDatabase!!.child("content").child(key).setValue(videoContent)
     }
 
     fun getContent(listener: Repository.contentListListener){

@@ -51,12 +51,8 @@ class Repository private constructor()//private val meetCardDao: MeetCardDao,
 
 
 
-    val firebaseDataSource:OnlineDatabase = OnlineDatabase()
-    //var liveMeets:LiveData<Array<MeetCard>> = MutableLiveData()
+    private val firebaseDataSource:OnlineDatabase = OnlineDatabase()
 
-//    fun getMeets():LiveData<Array<MeetCard>>{
-//        return liveMeets
-//    }
 
     fun initDB(){
         firebaseDataSource.initDatabase()
@@ -82,12 +78,17 @@ class Repository private constructor()//private val meetCardDao: MeetCardDao,
         firebaseDataSource.getContent(listener)
     }
 
-    fun getDetailContent(listener: contentDetailListener,id:String){
-        firebaseDataSource.getDetailContent(listener,id)
-    }
 
     fun createVideos(content: List<ContentCard>){
         for(video in content)
         firebaseDataSource.addContentVideos(video)
     }
+
+    fun deleteOldMeets(oldMeets:List<MeetCard>){
+        for(meet in oldMeets) {
+            firebaseDataSource.deleteOldMeets(meet.onlineId)
+        }
+
+    }
+
 }

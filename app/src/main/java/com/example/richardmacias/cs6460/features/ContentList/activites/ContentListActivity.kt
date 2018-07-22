@@ -1,24 +1,18 @@
 package com.example.richardmacias.cs6460.features.ContentList.activites
 
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.example.richardmacias.cs6460.Constants.Constants
 import com.example.richardmacias.cs6460.R
 import com.example.richardmacias.cs6460.core.BaseActivity
 import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.ArticleDetail.ArticleDetailActivity
 import com.example.richardmacias.cs6460.features.ContentList.adapters.ContentAdapter
 import com.example.richardmacias.cs6460.features.ContentList.models.ContentCard
-import com.example.richardmacias.cs6460.features.MainMeetList.activites.MainActivity
-import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
 import com.example.richardmacias.cs6460.features.VideoDetail.VideoDetailActivity
 
 class ContentListActivity : BaseActivity() {

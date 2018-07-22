@@ -7,13 +7,11 @@ import com.example.richardmacias.cs6460.R
 import android.arch.lifecycle.ViewModelProviders
 import android.opengl.Visibility
 import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.richardmacias.cs6460.Constants.Constants
 import com.example.richardmacias.cs6460.data.Repository
 import com.example.richardmacias.cs6460.features.MainMeetList.models.MeetCard
+import kotlinx.android.synthetic.main.card_layout.view.*
 
 
 class DetailMeetActivity : AppCompatActivity(){
@@ -26,6 +24,7 @@ class DetailMeetActivity : AppCompatActivity(){
     private lateinit var additonalInfoText:TextView
     private lateinit var joinButton:Button
     private lateinit var currentCard:MeetCard
+    private lateinit var imageCover:ImageView
     private var repository:Repository? = null
     private var joined:Boolean = false
     private lateinit var progressBar: ProgressBar
@@ -65,6 +64,7 @@ class DetailMeetActivity : AppCompatActivity(){
         joinButton = findViewById(R.id.button_join_detail)
         joinButton.setOnClickListener{join()}
         progressBar = findViewById(R.id.progress_bar_detail)
+        imageCover = findViewById(R.id.image_cover_detail)
     }
 
     private fun bindMeetCardToUI(meetCard: MeetCard){
@@ -73,6 +73,12 @@ class DetailMeetActivity : AppCompatActivity(){
         whereText.text = meetCard.location
         whoText.text = meetCard.numberGoing.toString()
         additonalInfoText.text = meetCard.description
+        val imageSrc = when (currentCard.category) {
+            Constants.CATEGORY_AFTER_SCHOOL -> R.drawable.social
+            Constants.CATEGORY_LUNCH -> R.drawable.lunch
+            else -> R.drawable.social_tree
+        }
+        imageCover.setImageResource(imageSrc)
     }
 
     private fun join(){

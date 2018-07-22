@@ -81,3 +81,5 @@ R
 "app/src/main/res/values/colors.xml,9/6/969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 w
 Gapp/src/main/java/com/example/richardmacias/cs6460/core/BaseActivity.kt,b/8/b824e07f9bf77b02ab9dfafbedc6af681306cdb6
+S
+#app/src/main/res/xml/searchable.xml,1/f/1f37b3287e9e1f293b5edaa624e3963f9b0959e3
