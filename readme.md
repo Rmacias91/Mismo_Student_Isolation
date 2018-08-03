@@ -47,7 +47,7 @@ Example of the video page.
 </p>
 
 
-###What tools did I use to make this?
+### What tools did I use to make this?
 I decided it was time to learn Kotlin, firebase, and some of the new architecture components introduced by google. I did not get to fully implement the architecture tools due to a time limitation, but I was close! Kotlin is amazing, and I'm really glad I forced
 myself to try it out, even with the short deadline. Firebase is amazing to do a quick prototype. My last project I had to half of my development
 time working on the node and aws programs. Now with firebase, it was all about the application :) I'm starting to see great progress in my applications. :D
