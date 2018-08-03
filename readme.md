@@ -29,31 +29,26 @@ and join events.
 1. Here is the Event Page
 <p align = "center">
   
-<img src="" alt="ClassDiagram" width="60%"/>
+<img src="https://github.com/Rmacias91/Mismo_Student_Isolation/blob/master/img/Screenshot_2018-08-02-19-31-15.png" alt="ClassDiagram" width="60%"/>
 </p>
 
 The second functionality of the application was to have a list of content that the students can learn from. The content provided
 are videos and articles that teach social skills. There is also content that uses cogntivite therapy. I used Youtube SDK to
 present the videos.
-Here's an Image of what the Content List looks like.
-<p align = "center">
-<img src="" alt="Show Avail" width="60%"/>
-</p>
 
 Example of the Article Page.
 <p align = "center">
-<img src="" alt="Show Avail" width="60%"/>
+<img src="https://github.com/Rmacias91/Mismo_Student_Isolation/blob/master/img/Screenshot_2018-08-02-19-31-49.png" alt="Show Avail" width="60%"/>
 </p>
 
 Example of the video page.
 <p align = "center">
-<img src="" alt="Show Avail" width="60%"/>
+<img src="https://github.com/Rmacias91/Mismo_Student_Isolation/blob/master/img/Screenshot_2018-08-02-19-31-42.png" alt="Show Avail" width="60%"/>
 </p>
 
 
 ###What tools did I use to make this?
-I decided it was time to learn Kotlin, firebase, and some of the new architecture components introduced by google. I did not get to
-fully implement the architecture tools due to a time limitation, but I was close! Kotlin is amazing, and I'm really glad I forced
+I decided it was time to learn Kotlin, firebase, and some of the new architecture components introduced by google. I did not get to fully implement the architecture tools due to a time limitation, but I was close! Kotlin is amazing, and I'm really glad I forced
 myself to try it out, even with the short deadline. Firebase is amazing to do a quick prototype. My last project I had to half of my development
 time working on the node and aws programs. Now with firebase, it was all about the application :) I'm starting to see great progress in my applications. :D
 
