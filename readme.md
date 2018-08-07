@@ -7,17 +7,13 @@ research or a project. Of course I decided on an android application, but I woun
 over the summer, the application is pretty basic. I tried my best to focus on what solutions would help students who were not making friends
 in school. It's a relevant problem in today's society.
 
-### Note
-This is made for api > 23
-Not certain how it will perform on lower apis. Since my family and friends run somewhat up to date phones, no one needed a lower api.
-If there are crashes, let me know and I'll update it to work with lower apis.
 
 ### To Install 
 Go to my app/release/app-release.apk Or [Click here](https://github.com/Rmacias91/Mismo_Student_Isolation/tree/master/app/release/app-release.apk)
 Download and install on your phone. :) I'll start publishing my apps on the store soon!
 
 
-### Presnetation
+### Presentation
 [Here is my Presentation for class](https://drive.google.com/open?id=14gF91qy-agryNDJ_uDdMVqf6NW8X5_a0)
 
 [Here is the power point](https://drive.google.com/open?id=18rUaGLjIS-2JLi_kTCQ9898uKkUcBOz2fGQRqRaFz1s)
